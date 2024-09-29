@@ -7,7 +7,7 @@ mod tests {
 
     #[test]
     fn kinds() {
-        fn generic<K: kind::Kind>(xs: K::F<i32>) -> i32
+        fn generic<'a, K: kind::Kind<'a>>(xs: K::F<i32>) -> i32
         where
             K::F<i32>: IntoIterator<Item = i32>,
             K::F<i32>: Sized,
